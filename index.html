@@ -3,214 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aaron Jones — Computer Science ePortfolio</title>
+<title>Aaron Jones — CS 499 Computer Science ePortfolio</title>
 <style>
   :root {
-    --bg: #0f1115;
-    --panel: #171a21;
-    --border: #262b36;
-    --text: #e7e9ee;
-    --muted: #9aa3b2;
-    --accent: #5eb1ff;
-    --accent-soft: rgba(94,177,255,0.12);
+    --navy: #1f4e79;
+    --navy-dark: #15344f;
+    --text: #222;
+    --muted: #555;
+    --bg: #ffffff;
+    --card-bg: #f7f9fb;
+    --border: #e1e6ea;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
     line-height: 1.6;
   }
   header {
-    padding: 64px 24px 40px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
+    background: var(--navy);
+    color: #fff;
+    padding: 2.5rem 1.5rem 1.5rem;
   }
-  header h1 {
-    margin: 0 0 8px;
-    font-size: 2.2rem;
-    letter-spacing: -0.02em;
-  }
-  header p.tagline {
-    margin: 0 auto;
-    max-width: 640px;
-    color: var(--muted);
-    font-size: 1.05rem;
-  }
-  nav.links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  nav.links a {
-    color: var(--accent);
+  header .wrap { max-width: 860px; margin: 0 auto; }
+  header h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+  header p.tagline { margin: 0 0 1.25rem; color: #cfe0ef; font-size: 1.05rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+  nav a {
+    color: #fff;
     text-decoration: none;
     font-size: 0.95rem;
-    padding: 8px 14px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 2px;
   }
-  nav.links a:hover { background: var(--accent-soft); }
-  main {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
-  }
-  section.intro {
-    margin-bottom: 48px;
-  }
-  section.intro h2 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-  }
-  section.intro p { color: var(--muted); }
-  h2.section-title {
+  nav a:hover { border-bottom-color: #fff; }
+  main { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    color: var(--navy);
     font-size: 1.5rem;
-    margin: 0 0 24px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
+  h3 { color: var(--navy-dark); font-size: 1.15rem; margin: 1.5rem 0 0.5rem; }
+  p { margin: 0 0 1rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
   }
   .card {
-    background: var(--panel);
+    background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.25rem;
   }
-  .card .eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-  }
-  .card h3 {
-    margin: 0;
-    font-size: 1.15rem;
-  }
-  .card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.95rem;
-    flex-grow: 1;
-  }
-  .card .stack {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-  .card .status {
+  .card ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+  .card li { margin-bottom: 0.4rem; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .btn {
     display: inline-block;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    color: var(--muted);
-    width: fit-content;
-  }
-  .card a.repo-link {
-    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 600;
   }
-  .card a.repo-link:hover { text-decoration: underline; }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-secondary { background: #fff; color: var(--navy); border: 1px solid var(--navy); }
+  .video-wrap {
+    position: relative;
+    padding-top: 56.25%;
+    background: #0d1b2a;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .video-wrap iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+  }
+  .video-placeholder {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    color: #cfe0ef; text-align: center; padding: 1rem; font-size: 0.95rem;
+  }
   footer {
-    text-align: center;
-    padding: 32px 24px 48px;
-    color: var(--muted);
-    font-size: 0.85rem;
+    max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem;
+    color: var(--muted); font-size: 0.9rem;
   }
-  footer a { color: var(--accent); text-decoration: none; }
+  footer a { color: var(--navy); }
+  code { background: #eef2f5; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Aaron Jones</h1>
-  <p class="tagline">Computer Science ePortfolio — Southern New Hampshire University, CS 499 Capstone</p>
-  <nav class="links">
-    <a href="https://github.com/aaron-jones8" target="_blank" rel="noopener">GitHub</a>
-    <a href="#software-engineering">Software Engineering</a>
-    <a href="#data-structures">Algorithms &amp; Data Structures</a>
-    <a href="#databases">Databases</a>
-  </nav>
+  <div class="wrap">
+    <h1>Aaron Jones</h1>
+    <p class="tagline">Computer Science ePortfolio — SNHU CS 499 Capstone</p>
+    <nav>
+      <a href="#self-assessment">Self-Assessment</a>
+      <a href="#code-review">Code Review</a>
+      <a href="#software-engineering">Software Design &amp; Engineering</a>
+      <a href="#data-structures">Algorithms &amp; Data Structures</a>
+      <a href="#databases">Databases</a>
+      <a href="https://github.com/aaron-jones8" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-  <section class="intro">
-    <h2>About this ePortfolio</h2>
-    <p>
-      This ePortfolio showcases enhanced artifacts from my Computer Science coursework at SNHU,
-      demonstrating growth across three core areas of the discipline: software design and engineering,
-      algorithms and data structures, and databases. Each artifact below began as coursework and is being
-      revised and expanded as part of my CS 499 Capstone. Code review, enhancement narratives, and a
-      professional self-assessment will be added as the ePortfolio develops over the course.
-    </p>
+
+  <section id="self-assessment">
+    <div class="eyebrow">Professional Self-Assessment</div>
+    <h2>Introduction</h2>
+
+    <p>Completing the Computer Science program at Southern New Hampshire University, and this capstone in particular, has given me a clearer picture of what I can actually do rather than just what I've been taught. I haven't committed to a narrow specialization within computer science, and at this point in a genuinely competitive field — one being reshaped by AI as quickly as it is — I'm not trying to brand myself around one. What I want this portfolio to demonstrate is more fundamental than that: that I'm capable, that I can take on a task I haven't necessarily done before, and that I can see it through to something that actually works. The three artifacts in this portfolio, each enhanced in a different core area of computer science, are the clearest evidence I have of that.</p>
+
+    <h3>Collaborating in a Team Environment</h3>
+    <p>Most of my coursework has been independent, structured project work, so the clearest example I can point to of working within a shared, collaborative environment is the structured peer-review process built into courses like CS 465 (Full Stack Development), where I wrote discussion posts and peer responses to classmates' work. That format is asynchronous and lower-stakes than a shared codebase, and I want to be honest about that rather than overstate it, but it's still a real exercise in the skill underneath real teamwork: reading someone else's technical decisions, understanding the reasoning behind them, and giving feedback that's useful rather than just correct.</p>
+
+    <h3>Communicating with Stakeholders</h3>
+    <p>Two of the artifacts in this portfolio were built directly around a specific audience's stated needs rather than an abstract specification. The Contact/Task/Appointment management services were built for a named fictional client, Grand Strand Systems, which meant translating plain-language client requirements into concrete validation rules and automated tests. The Grazioso Salvare Rescue Animal Dashboard was built around a real rescue organization's actual workflow, which meant the technical design had to disappear behind an interface a non-technical stakeholder could just use. Outside this portfolio, my MAT 350 (Applied Linear Algebra) discussion posts required explaining results like singular value decomposition and image compression in plain language for a reader without the same math background.</p>
+
+    <h3>Data Structures and Algorithms</h3>
+    <p>The clearest demonstration of this in the portfolio is the Milestone Three enhancement to the ABCU Advising Program, replacing a vector-based linear search with a hash map and turning the program's most frequent operation from an O(n) scan into an O(1) average-case lookup. Outside this portfolio, my strongest algorithms work was in CS 370 (Artificial Intelligence), where I built a reinforcement-learning agent — implementing Q-learning, A2C, and REINFORCE — that reached a 100% win rate on its task.</p>
+
+    <h3>Software Engineering and Database</h3>
+    <p>This is the area where this portfolio's artifacts carry the most direct weight. The Milestone Two enhancement introduced a repository interface and a file-backed persistence layer in front of services that had been directly coupled to an in-memory map, with integration tests, a Maven build, and a GitHub Actions CI workflow to support it. The Milestone Four enhancement completed a CRUD module that had never implemented update or delete, and added a compound index built around the dashboard's own query patterns. Outside the portfolio, I maintain a self-hosted home server running a Docker-based stack with its own backend scripting and API work.</p>
+
+    <h3>Security</h3>
+    <p>The Milestone Four enhancement is this portfolio's direct evidence of a security mindset: removing hardcoded database credentials, fixing a connection check that silently accepted bad credentials, escaping credentials before they're placed in a connection URI, and adding guardrails against an accidental mass update or delete. Outside the portfolio, CS 370's AI ethics work, including a white paper on GDPR, pushed me to think about privacy and data protection from a policy and design angle as well as a code-level one.</p>
+
+    <h3>How the Artifacts Fit Together</h3>
+    <p>The three artifacts were chosen to cover three different, necessary layers of the same kind of work: sound object-oriented design and disciplined testing; recognizing and fixing a real data-structure trade-off; and taking a full application — database, backend logic, and a usable front end — and making it both more complete and more secure. None of them were already finished, polished projects before this course; each had a real, identifiable problem that I diagnosed and fixed, which is closer to what maintaining software in a job actually looks like. Taken together, given an existing system and a real problem in it, I can figure out what's actually wrong, fix it correctly, and prove that the fix works.</p>
+
+    <div class="links">
+      <a class="btn btn-secondary" href="assets/Jones_Aaron_Professional_Self_Assessment.pdf" target="_blank">Download as PDF</a>
+    </div>
+  </section>
+
+  <section id="code-review">
+    <div class="eyebrow">Milestone One</div>
+    <h2>Informal Code Review</h2>
+    <p>A walkthrough of all three original artifacts before enhancement: existing functionality, a code analysis targeting structure, efficiency, security, and testing, and the planned enhancements for each of the three categories below.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/bDkomIxV5w4" title="CS 499 Milestone One Code Review — Aaron Jones" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
   </section>
 
   <section id="software-engineering">
-    <h2 class="section-title">Software Design &amp; Engineering</h2>
-    <div class="cards">
-      <div class="card">
-        <span class="eyebrow">Category One</span>
-        <h3>Contact/Task/Appointment Management Services</h3>
-        <p>
-          A set of Java service classes built for CS 320, with constructor- and method-level input validation
-          and a JUnit 5 test suite covering valid and invalid cases via equivalence partitioning.
-        </p>
-        <div class="stack">Java &middot; JUnit 5</div>
-        <span class="status">Enhancement planned</span>
-        <a class="repo-link" href="https://github.com/aaron-jones8/CS320-Portfolio-Artifacts" target="_blank" rel="noopener">View repository →</a>
-      </div>
+    <div class="eyebrow">Milestone Two · Category One</div>
+    <h2>Software Design and Engineering</h2>
+    <p><strong>Contact/Task/Appointment Management Services</strong> — a set of Java entity and service classes originally built for CS 320: Software Testing, Automation, and Quality Assurance, with validated, immutable-ID entities and a JUnit test suite.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">What changed</h3>
+      <ul>
+        <li>Introduced a repository interface for each entity, so the services depend on an abstraction instead of a concrete in-memory map.</li>
+        <li>Added a file-backed repository implementation alongside the original in-memory one, so data now persists across restarts — and made real integration tests possible for the first time.</li>
+        <li>Fixed an invalid-regex bug in phone validation, added missing existence checks on update methods, and standardized on JUnit 5.</li>
+        <li>Consolidated three separate Eclipse projects into one Maven project with a GitHub Actions CI workflow that runs the full suite on every push.</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a class="btn btn-primary" href="https://github.com/aaron-jones8/CS320-Portfolio-Artifacts" target="_blank" rel="noopener">View code on GitHub</a>
+      <a class="btn btn-secondary" href="assets/Jones_Aaron_Milestone_Two_Narrative.pdf" target="_blank">Read full narrative</a>
     </div>
   </section>
 
-  <section id="data-structures" style="margin-top: 48px;">
-    <h2 class="section-title">Algorithms &amp; Data Structures</h2>
-    <div class="cards">
-      <div class="card">
-        <span class="eyebrow">Category Two</span>
-        <h3>Analysis of Runtime and Memory of Data Structures</h3>
-        <p>
-          A C++ course-advising program comparing the runtime and memory tradeoffs of vectors, hash tables,
-          and binary search trees, then implementing course lookup and sorting using the selected structure.
-        </p>
-        <div class="stack">C++</div>
-        <span class="status">Enhancement planned</span>
-        <a class="repo-link" href="https://github.com/aaron-jones8/Analysis-of-Runtime-and-Memory-of-Data-Structures" target="_blank" rel="noopener">View repository →</a>
-      </div>
+  <section id="data-structures">
+    <div class="eyebrow">Milestone Three · Category Two</div>
+    <h2>Algorithms and Data Structures</h2>
+    <p><strong>ABCU Advising Program</strong> — a C++ console application originally built for CS 300: Data Structures and Algorithms, comparing a vector, a hash table, and a binary search tree for the same course-advising task.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">What changed</h3>
+      <ul>
+        <li>Replaced the vector-based linear search with an <code>unordered_map</code> keyed by course number — turning the program's most frequent operation from an O(n) scan into an O(1) average-case lookup.</li>
+        <li>Fixed a Windows-line-ending (CRLF) bug that was silently corrupting the last field of every data row.</li>
+        <li>Added real error handling for a file that fails to open, and validation that skips and reports malformed data rows.</li>
+        <li>Fixed an infinite-loop bug triggered by non-numeric menu input.</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a class="btn btn-primary" href="https://github.com/aaron-jones8/Analysis-of-Runtime-and-Memory-of-Data-Structures" target="_blank" rel="noopener">View code on GitHub</a>
+      <a class="btn btn-secondary" href="assets/Jones_Aaron_Milestone_Three_Narrative.pdf" target="_blank">Read full narrative</a>
     </div>
   </section>
 
-  <section id="databases" style="margin-top: 48px;">
-    <h2 class="section-title">Databases</h2>
-    <div class="cards">
-      <div class="card">
-        <span class="eyebrow">Category Three</span>
-        <h3>Grazioso Salvare Rescue Animal Dashboard</h3>
-        <p>
-          A MongoDB-backed CRUD module and interactive Dash dashboard for filtering and visualizing animal
-          shelter data by rescue-type criteria, including a data table, breed chart, and map view.
-        </p>
-        <div class="stack">Python &middot; PyMongo &middot; Dash</div>
-        <span class="status">Enhancement planned</span>
-        <a class="repo-link" href="https://github.com/aaron-jones8/CS340-Grazioso-Salvare-Dashboard" target="_blank" rel="noopener">View repository →</a>
-      </div>
+  <section id="databases">
+    <div class="eyebrow">Milestone Four · Category Three</div>
+    <h2>Databases</h2>
+    <p><strong>Grazioso Salvare Rescue Animal Dashboard</strong> — a Python, PyMongo, and Dash application originally built for CS 340: Client/Server Development, filtering real Austin Animal Center shelter data by rescue-type profile.</p>
+
+    <div class="card">
+      <h3 style="margin-top:0">What changed</h3>
+      <ul>
+        <li>Removed hardcoded database credentials in favor of environment variables, with a clear error if they're missing.</li>
+        <li>Completed the CRUD module — the original never implemented <code>update()</code> or <code>delete()</code> — with safeguards against an accidental mass update or delete on an empty query.</li>
+        <li>Added a compound index on the exact fields the dashboard's filters query together, following equality-then-range ordering.</li>
+        <li>Fixed a connection check that silently accepted bad credentials, escaped credentials in the connection URI, and added error handling for a missing logo file.</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a class="btn btn-primary" href="https://github.com/aaron-jones8/CS340-Grazioso-Salvare-Dashboard" target="_blank" rel="noopener">View code on GitHub</a>
+      <a class="btn btn-secondary" href="assets/Jones_Aaron_Milestone_Four_Narrative.pdf" target="_blank">Read full narrative</a>
     </div>
   </section>
+
 </main>
 
 <footer>
-  <p>Built and maintained by Aaron Jones &middot; <a href="https://github.com/aaron-jones8" target="_blank" rel="noopener">github.com/aaron-jones8</a></p>
+  <p>Aaron Jones — Computer Science, Southern New Hampshire University · <a href="https://github.com/aaron-jones8" target="_blank" rel="noopener">github.com/aaron-jones8</a></p>
 </footer>
 
 </body>
